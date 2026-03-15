@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hadiah Untuk Risca</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+#start{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#ff4d6d;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+#start button{
+padding:20px 40px;
+font-size:20px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+}
+
+.container{
+display:none;
+padding:40px;
+}
+
+.slider{
+width:320px;
+margin:auto;
+margin-top:30px;
+}
+
+.slider img{
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.message{
+margin-top:40px;
+font-size:20px;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="start">
+
+<h1>🎁 Ada Hadiah Untuk Kamu</h1>
+<button onclick="openGift()">Buka Hadiah ❤️</button>
+
+</div>
+
+<div class="container" id="main">
+
+<h1>🎉 Selamat Ulang Tahun 🎂</h1>
+<h2>Risca Dya Amadita</h2>
+
+<div class="slider">
+<img id="slide" src="foto1.jpg">
+</div>
+
+<div class="message">
+
+Selamat ulang tahun yang ke-18.<br><br>
+
+Semoga kamu sehat selalu, panjang umur,
+banyak rezekinya dan semua cita-cita kamu tercapai.<br><br>
+
+Semoga kita selalu bersama ❤️
+
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
+</audio>
+
+<script>
+
+function openGift(){
+
+document.getElementById("start").style.display="none";
+document.getElementById("main").style.display="block";
+
+setInterval(heartRain,300);
+
+}
+
+let fotos=[
+"foto1.jpg",
+"foto2.jpg",
+"foto3.jpg",
+"foto4.jpg",
+"foto5.jpg"
+];
+
+let i=0;
+
+setInterval(function(){
+
+i++;
+if(i>=fotos.length){i=0;}
+
+document.getElementById("slide").src=fotos[i];
+
+},3000);
+
+function heartRain(){
+
+let h=document.createElement("div");
+
+h.className="heart";
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(h);
+
+}
+
+</script>
+
+</body>
+</html>
